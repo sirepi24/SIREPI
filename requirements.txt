@@ -401,6 +401,7 @@ stack-data==0.6.2
 starlette==0.31.1
 stone==3.3.1
 streamlit==1.31.1
+style==1.1.0
 sympy==1.12
 syslog-rfc5424-formatter==1.2.3
 tables==3.7.0
@@ -431,6 +432,7 @@ ujson==5.8.0
 unicodecsv==0.14.1
 unicrypto==0.0.10
 Unidecode==1.3.7
+update==0.0.1
 uritemplate==4.1.1
 urllib3==1.26.18
 urlscan==0.9.9

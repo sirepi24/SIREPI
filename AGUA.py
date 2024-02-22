@@ -5,7 +5,7 @@ from streamlit_gsheets import GSheetsConnection
 
 url = "https://docs.google.com/spreadsheets/d/1HA8DtdlzlTj0sEsNVtQaZXmpSrhUn3gr3B_g7LMCGTY/edit?usp=sharing"
 
-conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+conn = st.connection("gsheets", type=GSheetsConnection)
 
 data = conn.read(spreadsheet=url, worksheet="0")
 #st.dataframe(data)

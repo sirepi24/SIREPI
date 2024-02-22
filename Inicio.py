@@ -11,11 +11,10 @@ url1 = "https://docs.google.com/spreadsheets/d/1j1xOUF1c2nugU4YyoArWpSwa4u8zfV03
 conn1 = st.connection("gsheets", type=GSheetsConnection)
 data1 = conn1.read(spreadsheet=url1, worksheet="0")
 
-
-st.header("INDICADORES")
+st.title("INDICADORES")
 genre = st.radio(
-    "INDICADORES",
-    ["***AGUA***", "***SALUD***", "***EDUCACION***"],
+    "Eliga unos de las anternativas:",
+    ["***AGUA***", "***SALUD***", "***EDUCACION***", "***ARTICULACION***"],
     index=None,
     key="horizontal"
 )

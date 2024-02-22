@@ -1,5 +1,5 @@
 
 import streamlit as st
 
-st.page_link("https://sirepi.onrender.com/", label="Home", icon="🏠")
+st.page_link("SIREPI/SALUD.py", label="Salud", icon="🏠")
 

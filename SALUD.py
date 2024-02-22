@@ -7,7 +7,7 @@ import pandas as pd
 
 url = "https://docs.google.com/spreadsheets/d/1j1xOUF1c2nugU4YyoArWpSwa4u8zfV03YLiVh6sG1PE/edit?usp=sharing"
 
-conn = st.experimental_connection("gsheets", type=GSheetsConnection)
+conn = st.connection("gsheets", type=GSheetsConnection)
 
 data = conn.read(spreadsheet=url, worksheet="0")
 st.dataframe(data)

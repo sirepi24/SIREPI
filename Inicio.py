@@ -13,7 +13,7 @@ data1 = conn1.read(spreadsheet=url1, worksheet="0")
 
 st.title("INDICADORES")
 genre = st.radio(
-    "Eliga unos de las anternativas:",
+    "Eliga una de las anternativas:",
     ["***AGUA***", "***SALUD***", "***EDUCACION***", "***ARTICULACION***"],
     index=None,
     key="horizontal"

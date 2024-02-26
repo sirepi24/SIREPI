@@ -50,8 +50,8 @@ elif genre == '***SALUD***':
     total_orden = conn1.query(sql=sql1, spreadsheet=url1)
     st.dataframe(total_orden)
     DISTRITO = st.sidebar.multiselect(
-    "Seleccion el Distrito",
-    options = total_orden["DISTRITO"].unique(),
+        "Seleccion el Distrito",
+        options = total_orden["DISTRITO"].unique(),
     )
     st.subheader("Resultados por Distrito")
     
@@ -65,8 +65,8 @@ elif genre == '***SALUD***':
     total_orden1 = conn1.query(sql=sql2, spreadsheet=url1)
     st.dataframe(total_orden1)
     DISTRITO = st.sidebar.multiselect(
-    "Seleccion el Distrito",
-    options = total_orden1["DISTRITO"].unique(),
+        "Seleccion el Distrito",
+        options = total_orden1["DISTRITO"].unique(),
     )
     
     st.subheader("Resultados por Distrito")
@@ -81,8 +81,8 @@ elif genre == '***SALUD***':
     total_orden2 = conn1.query(sql=sql3, spreadsheet=url1)
     st.dataframe(total_orden2)
     DISTRITO = st.sidebar.multiselect(
-    "Seleccion el Distrito",
-    options = total_orden2["DISTRITO"].unique(),
+        "Seleccion el Distrito",
+        options = total_orden2["DISTRITO"].unique(),
     )
     
     st.subheader("Resultados por Distrito")

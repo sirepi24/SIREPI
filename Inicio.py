@@ -23,35 +23,24 @@ genre = st.radio(
 if genre == '***AGUA***':
     st.subheader("ACCESO AL AGUA CLORADA PARA CONSUMO HUMANO(cloro residual en muestra de agua de consumo >=0.5 MG/L) 2024")
     sql = '''
-    SELECT
-        *
-    FROM 
-        Data
-    WHERE 
-        "Cloro" >= '0.5' and "Turbiedad" <= '5'
-
-    '''
+        SELECT
+            *
+        FROM 
+            Data
+        WHERE 
+            "Cloro" >= '0.5' and "Turbiedad" <= '5'
+    
+        '''
     df_sql_server = conn.query(spreadsheet=url, sql=sql)
-    #st.dataframe(df_sql_server)
-
-    Distrito = st.sidebar.multiselect(
-        "Seleccion el Distrito",
-        options = data["Distrito"].unique(),
-    )
-    st.subheader("Resultados por Distrito")
-
-    df_selection_c = data.query(
-        "Distrito == @Distrito"
-    )
-    st.dataframe(df_selection_c)
+    
     st.subheader("SEGUNDO INDICADOR:")
     st.subheader("***Numero de centros poblados que realizaron cloración por Provincia***")
     sql = 'SELECT ANY_VALUE(Provincia) as PROVINCIA, COUNT("Nombre CCPP") AS NumCentrosPoblados FROM Data GROUP BY Provincia ORDER BY Provincia ASC;'
     total_orden = conn.query(sql=sql, spreadsheet=url)
     st.dataframe(total_orden)
-
+    
     st.subheader("***Numero de centros poblados que realizaron cloración por Distrito***")
-    sql = 'SELECT ANY_VALUE(Provincia) as PROVINCIA, ANY_VALUE(Distrito) as DISTRITO, COUNT("Nombre CCPP") AS NumCentrosPoblados FROM Data GROUP BY Distrito ORDER BY Provincia ASC;'
+    sql = 'SELECT ANY_VALUE(Provincia) as PROVINCIA, ANY_VALUE(Distrito) as DISTRITO, COUNT("Nombre CCPP") AS NumCentrosPoblados FROM Data GROUP BY Distrito ORDER BY Distrito ASC;'
     total_orden = conn.query(sql=sql, spreadsheet=url)
     st.dataframe(total_orden)
 

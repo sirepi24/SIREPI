@@ -11,6 +11,7 @@ url1 = "https://docs.google.com/spreadsheets/d/1j1xOUF1c2nugU4YyoArWpSwa4u8zfV03
 conn1 = st.connection("gsheets", type=GSheetsConnection)
 data1 = conn1.read(spreadsheet=url1, worksheet="0")
 
+st.title("SISTEMA REGIONAL DE ATENCION INFANTIL DE LA PRIMERA INFANCIA")
 st.title("INDICADORES")
 genre = st.radio(
     "Eliga una de las anternativas:",

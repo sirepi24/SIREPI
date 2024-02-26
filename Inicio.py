@@ -66,7 +66,7 @@ elif genre == '***SALUD***':
     st.dataframe(total_orden1)
     DISTRITO = st.sidebar.multiselect(
         "Seleccion el Distrito",
-        options = total_orden1["DISTRITO"].unique(),
+        options1 = total_orden1["DISTRITO"].unique(),
     )
     
     st.subheader("Resultados por Distrito")
@@ -82,7 +82,7 @@ elif genre == '***SALUD***':
     st.dataframe(total_orden2)
     DISTRITO = st.sidebar.multiselect(
         "Seleccion el Distrito",
-        options = total_orden2["DISTRITO"].unique(),
+        options2 = total_orden2["DISTRITO"].unique(),
     )
     
     st.subheader("Resultados por Distrito")

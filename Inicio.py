@@ -56,17 +56,17 @@ if genre == '***AGUA***':
 
 elif genre == '***SALUD***':
     st.subheader("PRIMER INDICADOR: Porcentaje de gestantes atendidas")
-    sql1 = 'SELECT ANY_VALUE(SUB_REGION) as SUB_REGION, ANY_VALUE(PROVINCIA) as PROVINCIA, ANY_VALUE(DISTRITO) as DISTRITO, SUM("DenGest1eraATC") AS GESTANTES, SUM("NumGest1eraATC_1erTri") AS GESTANTES1TRI,(SUM("NumGest1eraATC_1erTri")*100)/SUM("DenGest1eraATC") AS PORCENTAJE  FROM HIS GROUP BY PROVINCIA;'
+    sql1 = 'SELECT ANY_VALUE(SUB_REGION) as SUB_REGION, ANY_VALUE(PROVINCIA) as PROVINCIA, ANY_VALUE(DISTRITO) as DISTRITO, SUM("DenGest1eraATC") AS GESTANTES, SUM("NumGest1eraATC_1erTri") AS GESTANTES1TRI,(SUM("NumGest1eraATC_1erTri")*100)/SUM("DenGest1eraATC") AS PORCENTAJE  FROM HIS GROUP BY DISTRITO;'
     total_orden = conn1.query(sql=sql1, spreadsheet=url1)
     st.dataframe(total_orden)
 
     st.subheader("SEGUNDO INDICADOR: Porcentaje de niños y niñas de 4 meses")
-    sql2 = 'SELECT ANY_VALUE(SUB_REGION) as SUB_REGION, ANY_VALUE(PROVINCIA) as PROVINCIA, ANY_VALUE(DISTRITO) as DISTRITO,SUM("Den4mes") AS Den4mes, SUM("Num4mes") AS Num4mes, (SUM("Num4mes")*100)/SUM("Den4mes") AS PORCENTAJE FROM HIS GROUP BY PROVINCIA;'
+    sql2 = 'SELECT ANY_VALUE(SUB_REGION) as SUB_REGION, ANY_VALUE(PROVINCIA) as PROVINCIA, ANY_VALUE(DISTRITO) as DISTRITO,SUM("Den4mes") AS Den4mes, SUM("Num4mes") AS Num4mes, (SUM("Num4mes")*100)/SUM("Den4mes") AS PORCENTAJE FROM HIS GROUP BY DISTRITO;'
     total_orden1 = conn1.query(sql=sql2, spreadsheet=url1)
     st.dataframe(total_orden1)
 
     st.subheader("TERCER INDICADOR: Porcentaje de de niños y niñas de 12 meses con CRED")
-    sql3 = 'SELECT ANY_VALUE(SUB_REGION) as SUB_REGION, ANY_VALUE(PROVINCIA) as PROVINCIA, ANY_VALUE(DISTRITO) as DISTRITO, SUM("DenCREDmes") AS DenCREDmes, SUM("NumCREDmes") AS NumCREDmes, (SUM("NumCREDmes")*100)/SUM("DenCREDmes") AS PORCENTAJE FROM HIS GROUP BY PROVINCIA;'
+    sql3 = 'SELECT ANY_VALUE(SUB_REGION) as SUB_REGION, ANY_VALUE(PROVINCIA) as PROVINCIA, ANY_VALUE(DISTRITO) as DISTRITO, SUM("DenCREDmes") AS DenCREDmes, SUM("NumCREDmes") AS NumCREDmes, (SUM("NumCREDmes")*100)/SUM("DenCREDmes") AS PORCENTAJE FROM HIS GROUP BY DISTRITO;'
     total_orden2 = conn1.query(sql=sql3, spreadsheet=url1)
     st.dataframe(total_orden2)
 

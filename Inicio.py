@@ -49,7 +49,7 @@ elif genre == '***SALUD***':
     sql1 = 'SELECT ANY_VALUE(SUB_REGION) as SUB_REGION, ANY_VALUE(PROVINCIA) as PROVINCIA, ANY_VALUE(DISTRITO) as DISTRITO, SUM("DenGest1eraATC") AS GESTANTES, SUM("NumGest1eraATC_1erTri") AS GESTANTES1TRI,(SUM("NumGest1eraATC_1erTri")*100)/SUM("DenGest1eraATC") AS PORCENTAJE  FROM HIS GROUP BY DISTRITO;'
     total_orden = conn1.query(sql=sql1, spreadsheet=url1)
     st.dataframe(total_orden)
-    //PRIMER SLIDER 
+    #PRIMER SLIDER 
     DISTRITO = st.sidebar.multiselect(
         "Seleccion el Distrito",
         options = total_orden["DISTRITO"].unique(),
@@ -65,7 +65,7 @@ elif genre == '***SALUD***':
     sql2 = 'SELECT ANY_VALUE(SUB_REGION) as SUB_REGION, ANY_VALUE(PROVINCIA) as PROVINCIA, ANY_VALUE(DISTRITO) as DISTRITO,SUM("Den4mes") AS Den4mes, SUM("Num4mes") AS Num4mes, (SUM("Num4mes")*100)/SUM("Den4mes") AS PORCENTAJE FROM HIS GROUP BY DISTRITO;'
     total_orden1 = conn1.query(sql=sql2, spreadsheet=url1)
     st.dataframe(total_orden1)
-    //SEGUNDO SLIDER 
+    #SEGUNDO SLIDER 
     DISTRITO1 = st.sidebar.multiselect(
         "Seleccion el Distrito",
         options = total_orden1["DISTRITO"].unique(),
@@ -82,7 +82,7 @@ elif genre == '***SALUD***':
     sql3 = 'SELECT ANY_VALUE(SUB_REGION) as SUB_REGION, ANY_VALUE(PROVINCIA) as PROVINCIA, ANY_VALUE(DISTRITO) as DISTRITO, SUM("DenCREDmes") AS DenCREDmes, SUM("NumCREDmes") AS NumCREDmes, (SUM("NumCREDmes")*100)/SUM("DenCREDmes") AS PORCENTAJE FROM HIS GROUP BY DISTRITO;'
     total_orden2 = conn1.query(sql=sql3, spreadsheet=url1)
     st.dataframe(total_orden2)
-    //TERCER SLIDER 
+    #TERCER SLIDER 
     DISTRITO2 = st.sidebar.multiselect(
         "Seleccion el Distrito",
         options = total_orden2["DISTRITO"].unique(),

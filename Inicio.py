@@ -48,7 +48,7 @@ elif genre == '***SALUD***':
     st.subheader("PRIMER INDICADOR: Porcentaje de gestantes atendidas")
     #if st.button("Suma total"):
     sql = 'SELECT ANY_VALUE(SUB_REGION) as SUB_REGION, ANY_VALUE(PROVINCIA) as PROVINCIA, ANY_VALUE(DISTRITO) as DISTRITO, SUM("DenGest1eraATC") AS GESTANTES, SUM("NumGest1eraATC_1erTri") AS GESTANTES1TRI,(SUM("NumGest1eraATC_1erTri")*100)/SUM("DenGest1eraATC") AS PORCENTAJE  FROM HIS GROUP BY DISTRITO;'
-    total_orden = conn.query(sql=sql, spreadsheet=url)
+    total_orden = conn.query(sql=sql, spreadsheet=url1)
     st.dataframe(total_orden)
 
     DISTRITO = st.sidebar.multiselect(
@@ -64,7 +64,7 @@ elif genre == '***SALUD***':
 
     st.subheader("SEGUNDO INDICADOR: Porcentaje de niños y niñas de 4 meses")
     sql1 = 'SELECT ANY_VALUE(SUB_REGION) as SUB_REGION, ANY_VALUE(PROVINCIA) as PROVINCIA, ANY_VALUE(DISTRITO) as DISTRITO,SUM("Den4mes") AS Den4mes, SUM("Num4mes") AS Num4mes, (SUM("Num4mes")*100)/SUM("Den4mes") AS PORCENTAJE FROM HIS GROUP BY DISTRITO;'
-    total_orden1 = conn.query(sql=sql1, spreadsheet=url)
+    total_orden1 = conn.query(sql=sql1, spreadsheet=url1)
     st.dataframe(total_orden1)
 
     DISTRITO1 = st.sidebar.multiselect(
@@ -81,7 +81,7 @@ elif genre == '***SALUD***':
 
     st.subheader("TERCER INDICADOR: Porcentaje de de niños y niñas de 12 meses con CRED")
     sql2 = 'SELECT ANY_VALUE(SUB_REGION) as SUB_REGION, ANY_VALUE(PROVINCIA) as PROVINCIA, ANY_VALUE(DISTRITO) as DISTRITO, SUM("DenCREDmes") AS DenCREDmes, SUM("NumCREDmes") AS NumCREDmes, (SUM("NumCREDmes")*100)/SUM("DenCREDmes") AS PORCENTAJE FROM HIS GROUP BY DISTRITO;'
-    total_orden2 = conn.query(sql=sql2, spreadsheet=url)
+    total_orden2 = conn.query(sql=sql2, spreadsheet=url1)
     st.dataframe(total_orden2)
 
     DISTRITO2 = st.sidebar.multiselect(

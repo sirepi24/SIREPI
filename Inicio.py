@@ -22,27 +22,10 @@ genre = st.radio(
 
 if genre == '***AGUA***':
     st.subheader("ACCESO AL AGUA CLORADA PARA CONSUMO HUMANO(cloro residual en muestra de agua de consumo >=0.5 MG/L) 2024")
-    sql = '''
-        SELECT
-            *
-        FROM 
-            Data
-        WHERE 
-            "Cloro" >= '0.5' and "Turbiedad" <= '5'
-    
-        '''
-    df_sql_server = conn.query(spreadsheet=url, sql=sql)
-    
-    st.subheader("SEGUNDO INDICADOR:")
-    st.subheader("***Numero de centros poblados que realizaron cloración por Provincia***")
-    sql = 'SELECT ANY_VALUE(Provincia) as PROVINCIA, COUNT("Nombre CCPP") AS NumCentrosPoblados FROM Data GROUP BY Provincia ORDER BY Provincia ASC;'
-    total_orden = conn.query(sql=sql, spreadsheet=url)
-    st.dataframe(total_orden)
-    
-    st.subheader("***Numero de centros poblados que realizaron cloración por Distrito***")
-    sql = 'SELECT ANY_VALUE(Provincia) as PROVINCIA, ANY_VALUE(Distrito) as DISTRITO, COUNT("Nombre CCPP") AS NumCentrosPoblados FROM Data GROUP BY Distrito ORDER BY Distrito ASC;'
-    total_orden = conn.query(sql=sql, spreadsheet=url)
-    st.dataframe(total_orden)
+    sql = '''SELECT ANY_VALUE("Provincia") as Provincia, ANY_VALUE("Distrito") as Distrito,COUNT(DISTINCT "Nombre CCPP") as Numero_de_CCPP_que_realizaron_cloracion FROM Data WHERE "Cloro" >= '0,5' GROUP BY "Distrito" ORDER BY "Provincia" '''
+    df_sql_server = conn.query(sql=sql, spreadsheet=url)
+    st.dataframe(df_sql_server)
+
 
 elif genre == '***SALUD***':
     st.subheader("PRIMER INDICADOR: Porcentaje de gestantes atendidas")
